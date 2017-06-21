@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+   
+{# commentaire twig #} 
+
+{% block body %}
+   <form method="POST">     
+        <input type="text" placeholder="Nom" name="nom">
+        <input type="text" placeholder="Prenom" name="prenom">
+        <input type="text" placeholder="Age" name="age">
+
+        <label>Numéro de maillot</label>
+        <!-- https://twig.sensiolabs.org/doc/2.x/tag/for.html -->
+        <select name="numero_maillot">
+        	{% for i in 1..999%}
+        		<option>{{i}}</option>
+        	{% endfor %}
+        </select>
+
+        <!-- à ajouter ensuite le menu de selection pour les équipes-->
+        <select name="equipe">
+            <option value="0">Sans équipe</option>
+            {% for team in teams %}
+                <option value="{{team.id}}">{{team.nom}}</option>
+            {% endfor %}
+        </select>
+
+        <input class="btn btn-primary btn-xs" type="submit" name="Enregistrer">
+
+       
+  </form>      
+{% endblock %}
+

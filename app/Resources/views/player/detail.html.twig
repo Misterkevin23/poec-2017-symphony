@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+   
+{# commentaire twig #} 
+
+{% block body %}
+        <h1>Fiche détaillée joueur</h1>
+        <p>Nom: {{player.nom}} </p>
+        <p>Prenom: {{player.prenom}} </p>
+        <p>Age: {{player.age}} </p>
+        {% if player.numeroMaillot != 0 %}
+            <p>Numéro: {{player.numeroMaillot}} </p>
+        {% endif %}
+        <p>Equipe: {{teamName}} </p>
+        
+        
+{% endblock %}
+
