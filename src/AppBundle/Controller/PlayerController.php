@@ -174,7 +174,10 @@ class PlayerController extends Controller
                 ->getManager();
 
         $playerRepo = $em->getRepository ('AppBundle:Player');
-        $teamRepo = $em->getRepository ('AppBundle:Team');
+       /* $teamRepo = $em->getRepository ('AppBundle:Team');*/
+
+        // En l'abscence de relation OneToOne spécifiée au niveau de la classe Player, il faut manuellement récupérer les les données de l'équipe en fonction de l'identifiant du joueur
+        // Si la relation OneToOne est définie, symfony se charge des jointures, de l'instanciation des objets et de l'hydratation
 
         // récupération de l'id
         // $id =$request->query->get('id'); //renvoi NULL
@@ -184,7 +187,7 @@ class PlayerController extends Controller
         $player = $playerRepo->find($id); // find() == findById() cherche toujours dans
         //la colonne id de la table sql
         
-        $teamId = $player->getEquipe();
+       /* $teamId = $player->getEquipe();
         if($teamId!=NULL)
         {
         $teamName = $teamRepo->find($teamId)->getNom();
@@ -192,7 +195,7 @@ class PlayerController extends Controller
         else
         {
           $teamName = 'Sans Equipe';  
-        } 
+        } */
 
         //Afficher les informations via une vue/template (fichier twig)
         //render() associe la vue(fichier.twig) passé en premier argument
@@ -202,7 +205,6 @@ class PlayerController extends Controller
                                   
         return $this->render('player/detail.html.twig', array(
             'player'    =>$player,
-            'teamName'  =>$teamName
         ));
     }
 

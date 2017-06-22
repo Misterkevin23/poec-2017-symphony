@@ -21,10 +21,10 @@ class PlayerRepository extends \Doctrine\ORM\EntityRepository
         return $this
         	->getEntityManager()
         	->createQuery('
-            SELECT p
-            FROM AppBundle:Player p
-            WHERE p.age < :age
-            ORDER BY p.nom ASC')
+                SELECT p
+                FROM AppBundle:Player p
+                WHERE p.age < :age
+                ORDER BY p.nom ASC')
             ->setParameter('age', $age)
             ->getResult();
 	}

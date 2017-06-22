@@ -10,7 +10,9 @@
         {% if player.numeroMaillot != 0 %}
             <p>Numéro: {{player.numeroMaillot}} </p>
         {% endif %}
-        <p>Equipe: {{teamName}} </p>
+        {% if player.equipe %}
+        	<p>Equipe: {{player.equipe.nom}}</p>
+   		{% endif%}
         
         
 {% endblock %}

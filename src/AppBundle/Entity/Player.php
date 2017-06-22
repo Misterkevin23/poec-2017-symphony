@@ -49,10 +49,9 @@ class Player
      */
     private $numeroMaillot;
 
-    /**
-     * @var int
+     /**
      *
-     * @ORM\Column(name="equipe", type="integer")
+     * @ORM\OneToOne(targetEntity="AppBundle\Entity\Team", cascade="persist")
      */
     private $equipe;
 
